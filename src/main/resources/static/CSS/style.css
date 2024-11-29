@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay-button {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 182, 8);
+    color: white;
+    border: none ;
+    padding: 13px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 10 ; /* Assure que le bouton est au-dessus de la vidéo */
+}
+
+.overlay-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.Top-Bar {
+    display: flex;
+    align-items: center;
+    background-color: #383838;
+    color: white;
+    padding: 20px ;
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Add space between the icon and the text */
+}
+
+.Phone_Contact {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Add space between the icon and the text */
+}
+
+.Phone_Contact svg {
+    height: 15px;
+    width: 15px;
+}
+
+.Phone_Contact p {
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.Email_Contact {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Add space between the icon and the text */
+}
+
+.Email_Contact svg {
+    height: 15px;
+    width: 15px;
+}
+
+.Email_Contact a {
+    font-size: 14px;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.right-section {
+    margin-left:1100px;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add space between the icon and the text */
+}
+
+.Nav_Bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    color: black;
+    padding: 20px ;
+}
+
+.Right_Section_Bar a {
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    color: black;
+}
+
+.Left_Section_Bar {
+    display: flex;
+    align-items: center;
+}
+
+.Right_Section_Bar {
+    margin-left:900px;
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Add space between the icon and the text */
+}
+

@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Restaurant {
+    width: 100%; /* Largeur de la section = largeur de l'écran */
+    height: 75vh; /* Hauteur de la section (par exemple, 60% de la hauteur de l'écran) */
+    overflow: hidden; /* Cache les parties débordantes de l'image */
+}
+
+.Restaurant img {
+    width: 100%; /* Largeur de l'image = largeur de l'écran */
+    height: 100%; /* Adapte l'image à la hauteur de la section */
+    object-fit: cover; /* Ajuste l'image pour qu'elle remplisse bien la section sans déformation */
+}
