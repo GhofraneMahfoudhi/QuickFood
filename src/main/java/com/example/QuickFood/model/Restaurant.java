@@ -13,6 +13,8 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.JoinTable;
 
 import java.util.List;
 
@@ -54,6 +56,14 @@ public class Restaurant {
 
     @OneToMany(mappedBy = "restaurant")
     private List<Avis> avis;
+
+    @ManyToMany
+    @JoinTable(
+            name = "restaurant_repas", // Junction table name
+            joinColumns = @JoinColumn(name = "restaurant_id"), // Foreign key for Restaurant
+            inverseJoinColumns = @JoinColumn(name = "repas_id") // Foreign key for Repas
+    )
+    private List<Repas> repas;
 
     // Default Constructor
     public Restaurant() {

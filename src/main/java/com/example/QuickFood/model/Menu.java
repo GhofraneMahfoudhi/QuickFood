@@ -6,7 +6,8 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.JoinTable;
 
 import java.util.List;
 
@@ -34,8 +35,12 @@ public class Menu {
     @ManyToOne
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
-    @OneToMany
-    @JoinColumn(name = "menu_id")
+    @ManyToMany
+    @JoinTable(
+            name = "menu_repas",
+            joinColumns = @JoinColumn(name = "id_menu"),
+            inverseJoinColumns = @JoinColumn(name = "id_repas")
+    )
     private List<Repas> repas;
 
     // Default Constructor

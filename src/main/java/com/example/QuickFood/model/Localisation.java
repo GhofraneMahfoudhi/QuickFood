@@ -37,6 +37,8 @@ public class Localisation {
     @OneToOne(mappedBy = "localisationActuelle")
     private Livreur livreur;
 
+
+
     // Default Constructor
     public Localisation() {
     }

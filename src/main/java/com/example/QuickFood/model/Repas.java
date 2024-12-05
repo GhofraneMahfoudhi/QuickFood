@@ -7,11 +7,14 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 
 import java.util.List;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -38,14 +41,25 @@ public class Repas {
     @Column(name = "image")
     private String image;
 
-    @Column(name = "idResto", nullable = false)
-    private int idResto;
+    @Column(name = "categorie", nullable = false)
+    private String categorie; // New attribute
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "taille", nullable = false)
+    private Taille taille; // New enumeration attribute
 
     @ManyToMany(mappedBy = "repas")
     private List<Commande> commandes;
 
     @OneToMany(mappedBy = "repas")
     private List<Avis> avis;
+
+    @ManyToMany(mappedBy = "repas")
+    private List<Menu> menus;
+
+    @ManyToMany(mappedBy = "repas")
+    private List<Restaurant> restaurants; // Inverse relationship with Restaurant
+    // }
 
     // Default Constructor
     public Repas() {

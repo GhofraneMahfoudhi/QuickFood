@@ -9,10 +9,11 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
+
 import java.util.List ;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -56,6 +57,11 @@ public class Commande {
     private Utilisateur utilisateur;
 
     @ManyToOne
+    @JoinColumn(name = "livreur_id", nullable = true)
+    private Livreur livreur;
+
+
+    @ManyToOne
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
 
@@ -68,6 +74,17 @@ public class Commande {
 
     @OneToMany(mappedBy = "commande")
     private List<Avis> avis;
+
+    @ManyToMany
+    @JoinTable(
+            name = "commande_option", // Name of the join table
+            joinColumns = @JoinColumn(name = "commande_id"), // Foreign key for Commande
+            inverseJoinColumns = @JoinColumn(name = "option_id") // Foreign key for Option
+    )
+    private List<Option> options;
+
+    @OneToMany(mappedBy = "commande", cascade = CascadeType.ALL)
+    private List<Paiement> paiements;
 
     // Default Constructor
     public Commande() {
